@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState, useEffect } from "react";
+import * as api from "./utils/api";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [channelList, setChannelList] = useState();
+  const [isLoading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(true);
+    api.getChannels().then((channels) => {
+      setChannelList(channels);
+      setLoading(false);
+    });
+  }, []);
+
+  if (isLoading) {
+    return <div>"Loading"</div>;
+  }
+
+  return channelList.map((channel) => {
+    return (
+      <div className="Channel-list" key={channel.id}>
+        <img src={channel.image} className="Channel-logo" alt="logo" />
+      </div>
+    );
+  });
 }
 
 export default App;
