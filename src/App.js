@@ -1,7 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { useState, useEffect } from "react";
+import * as api from "./utils/api";
 
 function App() {
+  useEffect(() => {
+    api.getSomething().then(() => {
+      console.log("test");
+    });
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
