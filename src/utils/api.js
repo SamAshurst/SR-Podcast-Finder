@@ -5,13 +5,14 @@ const SrApi = axios.create({
   baseURL: "http://api.sr.se/api/v2",
 });
 
+const parser = new xml2js.Parser({
+  explicitArray: false,
+  mergeAttrs: true,
+});
+
 export function getChannels() {
-  return SrApi.get("/channels")
+  return SrApi.get("/channels/?page=1&size=34")
     .then(({ data }) => {
-      const parser = new xml2js.Parser({
-        explicitArray: false,
-        mergeAttrs: true,
-      });
       return parser.parseStringPromise(data);
     })
     .then(
