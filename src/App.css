@@ -3,9 +3,13 @@
 }
 
 .Channel-logo{
-  height: 100px;
-  width: 100px;
+  width: stretch;
+  height: 100%;
+  object-fit: cover;
+  max-width: 412px;
+  max-height: 412px
 }
+
 
 .dropbtn {
   background-color: #04AA6D;
