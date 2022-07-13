@@ -3,11 +3,10 @@
 }
 
 .Channel-logo{
-  width: stretch;
-  height: 100%;
-  object-fit: cover;
-  max-width: 412px;
-  max-height: 412px
+  object-fit:inherit;
+  max-width: 576px;
+  max-height: 576px
+  
 }
 
 
