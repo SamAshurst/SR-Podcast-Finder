@@ -1,4 +1,4 @@
-import { Card, CardGroup, Button, Row, Container, Col } from "react-bootstrap";
+import { Card, Button, Row, Container, Col } from "react-bootstrap";
 
 export default function ChannelList({ channels }) {
   const regex = new RegExp("P4");
@@ -29,42 +29,56 @@ export default function ChannelList({ channels }) {
   console.log(extraChannels);
   return (
     <>
-      <Container className="p-1">
-        <CardGroup>
-          <Row xs={2} md={3} lg={3} className="m-0">
-            {mainChannels.map((channel) => {
-              return (
-                <Col className="p-1">
-                  <Card>
-                    <Card.Img
-                      variant="top"
-                      className="Channel-logo"
-                      src={channel.image}
-                    />
-                    <Card.Body>
-                      <Card.Title>{channel.name}</Card.Title>
-                      <Card.Text>{channel.tagline}</Card.Text>
-                      {
-                        //add a link to channel page
-                      }
-                      <Button variant="primary">Go to channel page</Button>
-                    </Card.Body>
-                  </Card>
-                </Col>
-              );
-            })}
-          </Row>
-        </CardGroup>
-      </Container>
-      <div class="dropdown">
-        <button class="dropbtn">P4 Local Channels</button>
-        <div class="dropdown-content">
-          {p4LocalChannels.map((channel) => {
-            // create href link
-            return <div>{channel.name}</div>;
+      <Container className="p-3 m-auto">
+        <Row xs={1} sm={2} md={2} lg={3} xl={4} className="g-4 d-flex">
+          {mainChannels.map((channel) => {
+            return (
+              <Col className="d-flex">
+                <Card border="dark">
+                  <Card.Img
+                    variant="top"
+                    className="Channel-logo"
+                    src={channel.image}
+                  />
+                  <Card.Body>
+                    <Card.Title>{channel.name}</Card.Title>
+                    <Card.Text>{channel.tagline}</Card.Text>
+                    {
+                      //add a link to channel page
+                    }
+                    <Button variant="primary">Go to channel page</Button>
+                  </Card.Body>
+                </Card>
+              </Col>
+            );
           })}
-        </div>
-      </div>
+          <Col className="d-flex">
+            <Card border="dark">
+              <Card.Img
+                variant="top"
+                className="Channel-logo"
+                src={p4LocalChannels[0].image}
+              ></Card.Img>
+              <Card.Body>
+                <Card.Title>P4 Lokal</Card.Title>
+                <Card.Text>
+                  Lokal radiokanalarna med nyheter, sport och kultur i en härlig
+                  blandning.
+                </Card.Text>
+                <div class="dropdown">
+                  <Button class="dropbtn">Select a channel</Button>
+                  <div class="dropdown-content">
+                    {p4LocalChannels.map((channel) => {
+                      // create href link
+                      return <div>{channel.name}</div>;
+                    })}
+                  </div>
+                </div>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
       {/* add the extra stations list */}
     </>
   );
