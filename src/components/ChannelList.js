@@ -29,12 +29,12 @@ export default function ChannelList({ channels }) {
   console.log(extraChannels);
   return (
     <>
-      <Container className="p-4">
-        <Row xs={1} sm={2} md={3} lg={3} className="m-1">
+      <Container className="p-3 m-auto">
+        <Row xs={1} sm={2} md={2} lg={3} xl={4} className="g-4 d-flex">
           {mainChannels.map((channel) => {
             return (
-              <Col className="p-1 d-flex">
-                <Card>
+              <Col className="d-flex">
+                <Card border="dark">
                   <Card.Img
                     variant="top"
                     className="Channel-logo"
@@ -52,18 +52,33 @@ export default function ChannelList({ channels }) {
               </Col>
             );
           })}
+          <Col className="d-flex">
+            <Card border="dark">
+              <Card.Img
+                variant="top"
+                className="Channel-logo"
+                src={p4LocalChannels[0].image}
+              ></Card.Img>
+              <Card.Body>
+                <Card.Title>P4 Lokal</Card.Title>
+                <Card.Text>
+                  Lokal radiokanalarna med nyheter, sport och kultur i en härlig
+                  blandning.
+                </Card.Text>
+                <div class="dropdown">
+                  <Button class="dropbtn">Select a channel</Button>
+                  <div class="dropdown-content">
+                    {p4LocalChannels.map((channel) => {
+                      // create href link
+                      return <div>{channel.name}</div>;
+                    })}
+                  </div>
+                </div>
+              </Card.Body>
+            </Card>
+          </Col>
         </Row>
       </Container>
-
-      <div class="dropdown">
-        <button class="dropbtn">P4 Local Channels</button>
-        <div class="dropdown-content">
-          {p4LocalChannels.map((channel) => {
-            // create href link
-            return <div>{channel.name}</div>;
-          })}
-        </div>
-      </div>
       {/* add the extra stations list */}
     </>
   );
