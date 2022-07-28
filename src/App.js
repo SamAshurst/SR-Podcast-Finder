@@ -2,6 +2,7 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import * as api from "./utils/api";
 import ChannelList from "./components/ChannelList";
+import Title from "./components/Title";
 
 function App() {
   const [channelList, setChannelList] = useState();
@@ -18,7 +19,12 @@ function App() {
     return <div>"Loading"</div>;
   }
 
-  return <ChannelList channels={channelList} />;
+  return (
+    <div className="App">
+      <Title />
+      <ChannelList channels={channelList} />
+    </div>
+  );
 }
 
 export default App;
