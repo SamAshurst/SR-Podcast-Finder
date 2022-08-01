@@ -1,8 +1,11 @@
 import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import * as api from "./utils/api";
 import ChannelList from "./components/ChannelList";
 import Title from "./components/Title";
+import P1 from "./components/P1";
+import Category from "./components/Category";
 
 function App() {
   const [channelList, setChannelList] = useState();
@@ -20,10 +23,16 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <Title />
-      <ChannelList channels={channelList} />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Title />
+        <Routes>
+          <Route path="/" element={<ChannelList channels={channelList} />} />
+          <Route path="/P1" element={<P1 />} />
+          <Route path="/:channel/:id" element={<Category />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

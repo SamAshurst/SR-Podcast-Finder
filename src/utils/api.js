@@ -28,3 +28,19 @@ export function getChannels() {
       console.log(err);
     });
 }
+
+export function getCategory() {
+  return SrApi.get("programcategories?pagination=false")
+    .then(({ data }) => {
+      return parser.parseStringPromise(data);
+    })
+    .then(
+      ({
+        sr: {
+          programcategories: { programcategory },
+        },
+      }) => {
+        return programcategory;
+      }
+    );
+}
