@@ -24,7 +24,10 @@ export default function P1() {
       {p1Catergories.map((category) => {
         return (
           <ul className="category" key={category.id}>
-            <Link to={category.name.replace(/[/]/g, "-")}>
+            <Link
+              to={category.name.replace(/[/]/g, "-")}
+              state={{ p1Catergories }}
+            >
               {category.name.replace(/[/]/g, "-")}
             </Link>
           </ul>
