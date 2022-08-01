@@ -46,7 +46,7 @@ export default function ChannelList({ channels }) {
                     {
                       //add a link to channel page
                     }
-                    <Button variant="primary">Go to channel page</Button>
+                    <Button variant="primary">Gå till kanalsidan</Button>
                   </Card.Body>
                 </Card>
               </Col>
@@ -66,7 +66,7 @@ export default function ChannelList({ channels }) {
                   blandning.
                 </Card.Text>
                 <div class="dropdown">
-                  <Button class="dropbtn">Select a channel</Button>
+                  <Button class="dropbtn">Välj en kanal</Button>
                   <div class="dropdown-content">
                     {p4LocalChannels.map((channel) => {
                       // create href link
