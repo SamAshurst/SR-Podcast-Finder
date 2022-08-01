@@ -38,7 +38,9 @@
   text-decoration: none;
   display: block;
 }
-
+.category {
+  padding-left: 0px;
+}
 .dropdown-content a:hover {background-color: #ddd;}
 
 .dropdown:hover .dropdown-content {display: block;}

@@ -1,4 +1,5 @@
 import { Card, Button, Row, Container, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export default function ChannelList({ channels }) {
   const regex = new RegExp("P4");
@@ -24,9 +25,9 @@ export default function ChannelList({ channels }) {
     );
   });
 
-  console.log(p4LocalChannels);
-  console.log(mainChannels);
-  console.log(extraChannels);
+  // console.log(p4LocalChannels);
+  // console.log(mainChannels);
+  // console.log(extraChannels);
   return (
     <>
       <Container className="p-3 m-auto">
@@ -43,10 +44,9 @@ export default function ChannelList({ channels }) {
                   <Card.Body>
                     <Card.Title>{channel.name}</Card.Title>
                     <Card.Text>{channel.tagline}</Card.Text>
-                    {
-                      //add a link to channel page
-                    }
-                    <Button variant="primary">Gå till kanalsidan</Button>
+                    <Link to={channel.name}>
+                      <Button variant="primary">Gå till kanalsidan</Button>
+                    </Link>
                   </Card.Body>
                 </Card>
               </Col>
