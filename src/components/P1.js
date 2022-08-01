@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import * as api from "../utils/api";
+
 export default function P1() {
   const [categoryList, setCategoryList] = useState();
   const [isLoading, setLoading] = useState(true);
@@ -22,7 +24,9 @@ export default function P1() {
       {p1Catergories.map((category) => {
         return (
           <ul className="category" key={category.id}>
-            {category.name}
+            <Link to={category.name.replace(/[/]/g, "-")}>
+              {category.name.replace(/[/]/g, "-")}
+            </Link>
           </ul>
         );
       })}
