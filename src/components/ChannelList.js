@@ -34,7 +34,7 @@ export default function ChannelList({ channels }) {
         <Row xs={1} sm={2} md={2} lg={3} xl={4} className="g-4 d-flex">
           {mainChannels.map((channel) => {
             return (
-              <Col className="d-flex">
+              <Col className="d-flex" key={channel.id}>
                 <Card border="dark">
                   <Card.Img
                     variant="top"
@@ -65,12 +65,12 @@ export default function ChannelList({ channels }) {
                   Lokal radiokanalarna med nyheter, sport och kultur i en härlig
                   blandning.
                 </Card.Text>
-                <div class="dropdown">
-                  <Button class="dropbtn">Välj en kanal</Button>
-                  <div class="dropdown-content">
+                <div className="dropdown">
+                  <Button className="dropbtn">Välj en kanal</Button>
+                  <div className="dropdown-content">
                     {p4LocalChannels.map((channel) => {
                       // create href link
-                      return <div>{channel.name}</div>;
+                      return <div key={channel.id}>{channel.name}</div>;
                     })}
                   </div>
                 </div>
