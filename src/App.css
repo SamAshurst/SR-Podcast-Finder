@@ -2,11 +2,15 @@
   text-align: center;
 }
 
-.Channel-logo{
+.Channel-logo {
   object-fit:inherit;
   max-width: 576px;
-  max-height: 576px
-  
+  max-height: 576px; 
+}
+.Program-image {
+  object-fit:inherit;
+  max-width: 276px;
+  max-height: 276px; 
 }
 
 
