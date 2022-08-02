@@ -38,9 +38,21 @@
   text-decoration: none;
   display: block;
 }
+
 .category {
   padding-left: 0px;
 }
+
+.list-group {
+  margin-left: 20px;
+  margin-right: 20px;
+
+}
+.list-group a {
+  color: #000000;
+  text-decoration: none;
+}
+
 .dropdown-content a:hover {background-color: #ddd;}
 
 .dropdown:hover .dropdown-content {display: block;}

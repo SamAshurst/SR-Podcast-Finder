@@ -44,7 +44,7 @@ export default function ChannelList({ channels }) {
                   <Card.Body>
                     <Card.Title>{channel.name}</Card.Title>
                     <Card.Text>{channel.tagline}</Card.Text>
-                    <Link to={channel.name}>
+                    <Link to={channel.name} state={channel.id}>
                       <Button variant="primary">Gå till kanalsidan</Button>
                     </Link>
                   </Card.Body>
