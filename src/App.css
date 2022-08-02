@@ -2,11 +2,15 @@
   text-align: center;
 }
 
-.Channel-logo{
+.Channel-logo {
   object-fit:inherit;
   max-width: 576px;
-  max-height: 576px
-  
+  max-height: 576px; 
+}
+.Program-image {
+  object-fit:inherit;
+  max-width: 276px;
+  max-height: 276px; 
 }
 
 
@@ -38,9 +42,21 @@
   text-decoration: none;
   display: block;
 }
+
 .category {
   padding-left: 0px;
 }
+
+.list-group {
+  margin-left: 20px;
+  margin-right: 20px;
+
+}
+.list-group a {
+  color: #000000;
+  text-decoration: none;
+}
+
 .dropdown-content a:hover {background-color: #ddd;}
 
 .dropdown:hover .dropdown-content {display: block;}

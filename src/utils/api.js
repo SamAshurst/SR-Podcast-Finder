@@ -44,3 +44,21 @@ export function getCategory() {
       }
     );
 }
+
+export function getProgramsForChannelCategory(channelId, categoryId) {
+  return SrApi.get(
+    `programs/index?channelid=${channelId}&programcategoryid=${categoryId}&filter=program.haspod&filtervalue=true`
+  )
+    .then(({ data }) => {
+      return parser.parseStringPromise(data);
+    })
+    .then(
+      ({
+        sr: {
+          programs: { program },
+        },
+      }) => {
+        return program;
+      }
+    );
+}
