@@ -56,6 +56,9 @@
   color: #000000;
   text-decoration: none;
 }
+.Button {
+  white-space: normal;
+}
 
 .dropdown-content a:hover {background-color: #ddd;}
 
