@@ -25,9 +25,6 @@ export default function ChannelList({ channels }) {
     );
   });
 
-  // console.log(p4LocalChannels);
-  // console.log(mainChannels);
-  // console.log(extraChannels);
   return (
     <>
       <Container className="p-3 m-auto">
@@ -79,7 +76,6 @@ export default function ChannelList({ channels }) {
           </Col>
         </Row>
       </Container>
-      {/* add the extra stations list */}
     </>
   );
 }

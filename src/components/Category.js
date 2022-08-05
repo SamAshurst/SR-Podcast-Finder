@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useLocation } from "react-router-dom";
-import { Card, Container, Col, Row } from "react-bootstrap";
+import { Card, Container, Col, Row, Button } from "react-bootstrap";
 import * as api from "../utils/api";
 
 export default function Category() {
@@ -28,6 +28,7 @@ export default function Category() {
   if (!programList) {
     return <div>No programs for this category</div>;
   }
+
   return (
     <>
       <div>{params.channel}</div>
@@ -46,7 +47,12 @@ export default function Category() {
                   <Card.Body className="p-1">
                     <Card.Title>{program.name}</Card.Title>
                     <Card.Text>{program.description}</Card.Text>
-                    <Card.Text>{program.programurl}</Card.Text>
+                    <Button
+                      href={`https://sverigesradio.se/avsnitt?programid=${program.id}`}
+                      rel="noopener noreferrer"
+                    >
+                      Se mer på SR
+                    </Button>
                   </Card.Body>
                 </Card>
               </Col>
