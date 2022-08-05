@@ -58,6 +58,9 @@ export function getProgramsForChannelCategory(channelId, categoryId) {
           programs: { program },
         },
       }) => {
+        if (program && !Array.isArray(program)) {
+          return [program];
+        }
         return program;
       }
     );

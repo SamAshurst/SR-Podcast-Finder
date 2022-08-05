@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { ListGroup, ListGroupItem } from "react-bootstrap";
 import * as api from "../utils/api";
 
-export default function P1() {
+export default function SelectedChannel() {
   const [categoryList, setCategoryList] = useState();
   const [isLoading, setLoading] = useState(true);
   const location = useLocation();
   const channelId = location.state;
+  const params = useParams();
 
   useEffect(() => {
     api.getCategory().then((category) => {
@@ -15,16 +16,15 @@ export default function P1() {
       setLoading(false);
     });
   }, []);
-  let p1Catergories;
+
   if (isLoading) {
     return <div>Loading..</div>;
   }
-  p1Catergories = [...categoryList].splice(2);
   return (
     <div>
-      <h1>P1</h1>
+      <h1>{params.channel}</h1>
       <ListGroup>
-        {p1Catergories.map((category) => {
+        {categoryList.map((category) => {
           return (
             <ListGroupItem tag="button" className="category" key={category.id}>
               <Link

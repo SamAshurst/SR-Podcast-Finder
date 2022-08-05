@@ -6,7 +6,6 @@ import * as api from "../utils/api";
 export default function Category() {
   const [programList, setProgramList] = useState();
   const [isLoading, setLoading] = useState(true);
-
   const params = useParams();
   const location = useLocation();
   const {
@@ -29,7 +28,6 @@ export default function Category() {
   if (!programList) {
     return <div>No programs for this category</div>;
   }
-  console.log(programList);
   return (
     <>
       <div>{params.channel}</div>
