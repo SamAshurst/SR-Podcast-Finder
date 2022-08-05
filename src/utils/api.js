@@ -46,6 +46,8 @@ export function getCategory() {
 }
 
 export function getProgramsForChannelCategory(channelId, categoryId) {
+  console.log(channelId);
+  console.log(categoryId);
   return SrApi.get(
     `programs/index?channelid=${channelId}&programcategoryid=${categoryId}&filter=program.haspod&filtervalue=true`
   )
@@ -58,6 +60,9 @@ export function getProgramsForChannelCategory(channelId, categoryId) {
           programs: { program },
         },
       }) => {
+        if (program && !Array.isArray(program)) {
+          return [program];
+        }
         return program;
       }
     );
