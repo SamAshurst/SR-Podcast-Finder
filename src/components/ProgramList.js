@@ -3,7 +3,7 @@ import { useParams, useLocation } from "react-router-dom";
 import { Card, Container, Col, Row, Button } from "react-bootstrap";
 import * as api from "../utils/api";
 
-export default function Category() {
+export default function ProgramList() {
   const [programList, setProgramList] = useState();
   const [isLoading, setLoading] = useState(true);
   const params = useParams();
@@ -34,7 +34,7 @@ export default function Category() {
       <div>{params.channel}</div>
       <div>{params.id}</div>
       <Container className="p-1 m-auto">
-        <Row xs={2} sm={2} md={3} lg={4} xl={6} className="g-4 d-flex m-auto">
+        <Row xs={2} sm={2} md={3} lg={4} xl={5} className="g-4 d-flex m-auto">
           {programList.map((program) => {
             return (
               <Col className="d-flex" key={program.id}>

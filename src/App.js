@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 import * as api from "./utils/api";
 import ChannelList from "./components/ChannelList";
 import Title from "./components/Title";
-import SelectedChannel from "./components/SelectedChannel";
-import Category from "./components/Category";
+import SelectedChannel from "./components/CategoryList";
+import Category from "./components/ProgramList";
 
 function App() {
   const [channelList, setChannelList] = useState();
