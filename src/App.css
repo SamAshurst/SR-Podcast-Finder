@@ -9,10 +9,12 @@
 }
 .Program-image {
   object-fit:inherit;
-  max-width: 276px;
-  max-height: 276px; 
 }
 
+.Episodes-link {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 
 .dropbtn {
   background-color: #04AA6D;

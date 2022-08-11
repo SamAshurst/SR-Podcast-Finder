@@ -28,8 +28,14 @@ export default function Episodes() {
     <>
       <div>{params.channel}</div>
       <div>{params.category}</div>
+      <Button
+        href={`https://sverigesradio.se/avsnitt?programid=${params.programId}`}
+        rel="noopener noreferrer"
+      >
+        Se alla avsnitt
+      </Button>
       <Container className="p-1 m-auto">
-        <Row xs={2} sm={2} md={3} lg={4} xl={6} className="g-4 d-flex m-auto">
+        <Row xs={1} sm={2} md={3} lg={4} xl={5} className="g-4 d-flex m-auto">
           {episodeList.map((episode) => {
             return (
               <Col className="d-flex" key={episode.id}>
@@ -55,6 +61,13 @@ export default function Episodes() {
           })}
         </Row>
       </Container>
+      <Button
+        className="Episodes-link"
+        href={`https://sverigesradio.se/avsnitt?programid=${params.programId}`}
+        rel="noopener noreferrer"
+      >
+        Se alla avsnitt
+      </Button>
     </>
   );
 }
