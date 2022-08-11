@@ -3,7 +3,7 @@ import { Link, useLocation, useParams } from "react-router-dom";
 import { ListGroup, ListGroupItem } from "react-bootstrap";
 import * as api from "../utils/api";
 
-export default function SelectedChannel() {
+export default function CategoryList() {
   const [categoryList, setCategoryList] = useState();
   const [isLoading, setLoading] = useState(true);
   const location = useLocation();

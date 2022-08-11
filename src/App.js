@@ -4,8 +4,9 @@ import { useState, useEffect } from "react";
 import * as api from "./utils/api";
 import ChannelList from "./components/ChannelList";
 import Title from "./components/Title";
-import SelectedChannel from "./components/SelectedChannel";
-import Category from "./components/Category";
+import CategoryList from "./components/CategoryList";
+import ProgramList from "./components/ProgramList";
+import EpisodeList from "./components/EpisodeList";
 
 function App() {
   const [channelList, setChannelList] = useState();
@@ -28,8 +29,12 @@ function App() {
         <Title />
         <Routes>
           <Route path="/" element={<ChannelList channels={channelList} />} />
-          <Route path="/:channel" element={<SelectedChannel />} />
-          <Route path="/:channel/:id" element={<Category />} />
+          <Route path="/:channel" element={<CategoryList />} />
+          <Route path="/:channel/:category" element={<ProgramList />} />
+          <Route
+            path="/:channel/:category/:programId"
+            element={<EpisodeList />}
+          />
         </Routes>
       </div>
     </BrowserRouter>

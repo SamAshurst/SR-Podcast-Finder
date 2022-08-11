@@ -65,3 +65,19 @@ export function getProgramsForChannelCategory(channelId, categoryId) {
       }
     );
 }
+
+export function getEpisodes(programId) {
+  return SrApi.get(`episodes/index?programid=${programId}&size=5`)
+    .then(({ data }) => {
+      return parser.parseStringPromise(data);
+    })
+    .then(
+      ({
+        sr: {
+          episodes: { episode },
+        },
+      }) => {
+        return episode;
+      }
+    );
+}
