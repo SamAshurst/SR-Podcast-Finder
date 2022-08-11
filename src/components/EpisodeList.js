@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Card, Container, Col, Row, Button } from "react-bootstrap";
 import * as api from "../utils/api";
+import publishedDate from "../utils/TimeConverter";
 
 export default function Episodes() {
   const [episodeList, setEpisodeList] = useState();
@@ -28,7 +29,7 @@ export default function Episodes() {
       <div>{params.channel}</div>
       <div>{params.category}</div>
       <Container className="p-1 m-auto">
-        <Row XS={2} sm={2} md={3} lg={4} xl={6} className="g-4 d-flex m-auto">
+        <Row xs={2} sm={2} md={3} lg={4} xl={6} className="g-4 d-flex m-auto">
           {episodeList.map((episode) => {
             return (
               <Col className="d-flex" key={episode.id}>
@@ -41,9 +42,11 @@ export default function Episodes() {
                   <Card.Body className="p-1">
                     <Card.Title>{episode.title}</Card.Title>
                     <Card.Text>{episode.description}</Card.Text>
-                    <Card.Text>{`Published: ${episode.publishdateutc}`}</Card.Text>
+                    <Card.Text className="text-muted">
+                      {publishedDate(episode.publishdateutc)}
+                    </Card.Text>
                     <Button href={episode.url} rel="noopener noreferrer">
-                      Se mer på SR
+                      Se på SR
                     </Button>
                   </Card.Body>
                 </Card>
@@ -55,10 +58,3 @@ export default function Episodes() {
     </>
   );
 }
-
-// {/* <Button
-// href={`https://sverigesradio.se/avsnitt?programid=${program.id}`}
-// rel="noopener noreferrer"
-// >
-// Se mer på SR
-// </Button> */}

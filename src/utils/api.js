@@ -77,7 +77,6 @@ export function getEpisodes(programId) {
           episodes: { episode },
         },
       }) => {
-        console.log(episode);
         return episode;
       }
     );
