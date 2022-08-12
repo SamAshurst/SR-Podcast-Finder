@@ -15,6 +15,25 @@
   margin-top: 20px;
   margin-bottom: 20px;
 }
+.Episodes-image {
+  margin-right: 0px;
+  max-width: 88px;
+  max-height: 88px; 
+}
+.Episodes-image-col {
+  padding-top: 5px;
+}
+.Episodes-text, .Episodes-title, .Episodes-published {
+  text-align: left;
+}
+.Episodes-ListGroup {
+}
+.Episodes-Container {
+  margin-left: 0px;
+}
+.d-grid {
+  grid-template-columns: 98px 3fr;
+}
 
 .dropbtn {
   background-color: #04AA6D;

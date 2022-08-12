@@ -1,6 +1,14 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Card, Container, Col, Row, Button } from "react-bootstrap";
+import {
+  Card,
+  Container,
+  Col,
+  Row,
+  Button,
+  ListGroup,
+  ListGroupItem,
+} from "react-bootstrap";
 import * as api from "../utils/api";
 import publishedDate from "../utils/TimeConverter";
 
@@ -34,7 +42,39 @@ export default function Episodes() {
       >
         Se alla avsnitt
       </Button>
-      <Container className="p-1 m-auto">
+      <ListGroup>
+        {episodeList.map((episode) => {
+          return (
+            <ListGroupItem className="Episodes-ListGroup">
+              <Container fluid className="Episodes-Container">
+                <Row className="d-grid">
+                  <Col className="Episodes-image-col">
+                    <img
+                      className="Episodes-image"
+                      src={episode.imageurl}
+                      alt="episode thumbnail"
+                    ></img>
+                  </Col>
+                  <Col>
+                    <div>
+                      <div className="fw-bold Episodes-title">
+                        {episode.title}
+                      </div>
+                      <div className=" Episodes-text">
+                        {episode.description}
+                      </div>
+                      <div className="text-muted Episodes-published">
+                        {publishedDate(episode.publishdateutc)}
+                      </div>
+                    </div>
+                  </Col>
+                </Row>
+              </Container>
+            </ListGroupItem>
+          );
+        })}
+      </ListGroup>
+      {/* <Container className="p-1 m-auto">
         <Row xs={1} sm={2} md={3} lg={4} xl={5} className="g-4 d-flex m-auto">
           {episodeList.map((episode) => {
             return (
@@ -60,7 +100,7 @@ export default function Episodes() {
             );
           })}
         </Row>
-      </Container>
+      </Container> */}
       <Button
         className="Episodes-link"
         href={`https://sverigesradio.se/avsnitt?programid=${params.programId}`}
