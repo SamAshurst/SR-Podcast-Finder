@@ -11,9 +11,30 @@
   object-fit:inherit;
 }
 
-.Episodes-link {
-  margin-top: 20px;
+.episodes-link {
+  margin-top: 10px;
   margin-bottom: 20px;
+}
+.episodes-image {
+  max-width: 88px;
+  max-height: 88px; 
+}
+.episodes-container {
+  padding-top: 2px;
+}
+.episodes-image-col {
+  padding-top: 7px;
+}
+.episodes-text, .episodes-title, .episodes-published {
+  text-align: left;
+}
+
+.d-grid {
+  grid-template-columns: 98px 3fr;
+}
+
+.list-group{
+  margin-top: 10px;
 }
 
 .dropbtn {
