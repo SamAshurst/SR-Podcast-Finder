@@ -45,25 +45,25 @@ export default function Episodes() {
       <ListGroup>
         {episodeList.map((episode) => {
           return (
-            <ListGroupItem className="Episodes-ListGroup">
-              <Container fluid className="Episodes-Container">
+            <ListGroupItem className="p-0" key={episode.id}>
+              <Container fluid className="episodes-container ps-2 pe-2 pb-2">
                 <Row className="d-grid">
-                  <Col className="Episodes-image-col">
+                  <Col className="episodes-image-col">
                     <img
-                      className="Episodes-image"
+                      className="episodes-image"
                       src={episode.imageurl}
-                      alt="episode thumbnail"
+                      alt="episodes-thumbnail"
                     ></img>
                   </Col>
                   <Col>
                     <div>
-                      <div className="fw-bold Episodes-title">
+                      <div className="fw-bold episodes-title">
                         {episode.title}
                       </div>
-                      <div className=" Episodes-text">
+                      <div className=" episodes-text">
                         {episode.description}
                       </div>
-                      <div className="text-muted Episodes-published">
+                      <div className="text-muted episodes-published">
                         {publishedDate(episode.publishdateutc)}
                       </div>
                     </div>
@@ -102,7 +102,7 @@ export default function Episodes() {
         </Row>
       </Container> */}
       <Button
-        className="Episodes-link"
+        className="episodes-link"
         href={`https://sverigesradio.se/avsnitt?programid=${params.programId}`}
         rel="noopener noreferrer"
       >

@@ -11,28 +11,30 @@
   object-fit:inherit;
 }
 
-.Episodes-link {
-  margin-top: 20px;
+.episodes-link {
+  margin-top: 10px;
   margin-bottom: 20px;
 }
-.Episodes-image {
-  margin-right: 0px;
+.episodes-image {
   max-width: 88px;
   max-height: 88px; 
 }
-.Episodes-image-col {
-  padding-top: 5px;
+.episodes-container {
+  padding-top: 2px;
 }
-.Episodes-text, .Episodes-title, .Episodes-published {
+.episodes-image-col {
+  padding-top: 7px;
+}
+.episodes-text, .episodes-title, .episodes-published {
   text-align: left;
 }
-.Episodes-ListGroup {
-}
-.Episodes-Container {
-  margin-left: 0px;
-}
+
 .d-grid {
   grid-template-columns: 98px 3fr;
+}
+
+.list-group{
+  margin-top: 10px;
 }
 
 .dropbtn {
