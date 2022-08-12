@@ -38,11 +38,13 @@ export default function ChannelList({ channels }) {
                     className="Channel-logo"
                     src={channel.image}
                   />
-                  <Card.Body>
-                    <Card.Title>{channel.name}</Card.Title>
-                    <Card.Text>{channel.tagline}</Card.Text>
+                  <Card.Body className="p-1 ps-2 pe-2">
+                    <Card.Title className="mb-0">{channel.name}</Card.Title>
+                    <Card.Text className="mb-1">{channel.tagline}</Card.Text>
                     <Link to={channel.name} state={channel.id}>
-                      <Button variant="primary">Gå till kanalsidan</Button>
+                      <Button variant="primary" className="mb-1 mt-1">
+                        Gå till kanalsidan
+                      </Button>
                     </Link>
                   </Card.Body>
                 </Card>
