@@ -44,11 +44,13 @@ export default function ProgramList() {
                     className="Program-image"
                     src={program.programimage}
                   />
-                  <Card.Body className="p-1">
-                    <Card.Title>{program.name}</Card.Title>
-                    <Card.Text>{program.description}</Card.Text>
+                  <Card.Body className="p-1 ps-2 pe-2">
+                    <Card.Title className="mb-0">{program.name}</Card.Title>
+                    <Card.Text className="mb-1">
+                      {program.description}
+                    </Card.Text>
                     <Link to={program.id}>
-                      <Button>Avsnitt</Button>
+                      <Button className="mb-1 mt-1">Avsnitt</Button>
                     </Link>
                   </Card.Body>
                 </Card>
