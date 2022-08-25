@@ -28,12 +28,7 @@ export default function Episodes() {
     <>
       <div>{params.channel}</div>
       <div>{params.category}</div>
-      <Button
-        href={`https://sverigesradio.se/avsnitt?programid=${params.programId}`}
-        rel="noopener noreferrer"
-      >
-        Se alla avsnitt
-      </Button>
+      <div className="episodes-desc">Senaste avsnitten:</div>
       <ListGroup>
         {episodeList.map((episode) => {
           return (
@@ -52,7 +47,7 @@ export default function Episodes() {
                         alt="episodes-thumbnail"
                       ></img>
                     </Col>
-                    <Row>
+                    <Row className="d-flex">
                       <div className="m-auto">
                         <div className="fw-bold episodes-title">
                           {episode.title}
@@ -63,6 +58,13 @@ export default function Episodes() {
                         <div className="text-muted episodes-published">
                           {publishedDate(episode.publishdateutc)}
                         </div>
+                        <Button
+                          className="d-block d-md-none episodes-button"
+                          href={episode.url}
+                          rel="noopener noreferrer"
+                        >
+                          Se på SR
+                        </Button>
                       </div>
                     </Row>
                   </Row>

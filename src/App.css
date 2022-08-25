@@ -110,3 +110,22 @@ a:-webkit-any-link:hover {
   text-decoration: none;
   color: rgb(0, 0, 0);
 }
+.episodes-desc {
+  text-align: left;
+  font-weight:bolder;
+  font-size: larger;
+  margin-left: 25px;
+  margin-bottom: -10px;
+}
+
+@media (max-width: 768px)  { /* Small devices */
+
+  .episodes-list-link {    
+    pointer-events: none;
+    cursor: default;     
+  }
+  .episodes-button{
+    margin-left: 0px;
+    max-width: 92px;
+  }
+}
