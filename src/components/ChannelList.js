@@ -32,10 +32,10 @@ export default function ChannelList({ channels }) {
           {mainChannels.map((channel) => {
             return (
               <Col className="d-flex" key={channel.id}>
-                <Card border="dark">
+                <Card border="dark channels-card">
                   <Card.Img
                     variant="top"
-                    className="Channel-logo"
+                    className="channels-logo"
                     src={channel.image}
                   />
                   <Card.Body className="p-1 ps-2 pe-2">
@@ -52,10 +52,10 @@ export default function ChannelList({ channels }) {
             );
           })}
           <Col className="d-flex">
-            <Card border="dark">
+            <Card border="dark channels-card">
               <Card.Img
                 variant="top"
-                className="Channel-logo"
+                className="channels-logo"
                 src={p4LocalChannels[0].image}
               ></Card.Img>
               <Card.Body>
