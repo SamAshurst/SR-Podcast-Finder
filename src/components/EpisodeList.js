@@ -28,12 +28,6 @@ export default function Episodes() {
     <>
       <div>{params.channel}</div>
       <div>{params.category}</div>
-      {/* <Button
-        href={`https://sverigesradio.se/avsnitt?programid=${params.programId}`}
-        rel="noopener noreferrer"
-      >
-        Se alla avsnitt
-      </Button> */}
       <div className="episodes-desc">Senaste avsnitten:</div>
       <ListGroup>
         {episodeList.map((episode) => {
