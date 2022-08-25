@@ -33,15 +33,15 @@ export default function ProgramList() {
     <>
       <div>{params.channel}</div>
       <div>{params.category}</div>
-      <Container className="p-1 m-auto">
+      <Container className="p-1 m-auto ">
         <Row xs={2} sm={2} md={3} lg={4} xl={5} className="g-4 d-flex m-auto">
           {programList.map((program) => {
             return (
               <Col className="d-flex" key={program.id}>
-                <Card border="dark">
+                <Card border="dark programs-card">
                   <Card.Img
                     variant="top"
-                    className="Program-image"
+                    className="programs-image"
                     src={program.programimage}
                   />
                   <Card.Body className="p-1 ps-2 pe-2">
