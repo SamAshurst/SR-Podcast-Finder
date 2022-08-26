@@ -37,7 +37,7 @@ export default function ProgramList() {
         <Row xs={2} sm={2} md={3} lg={4} xl={5} className="g-4 d-flex m-auto">
           {programList.map((program) => {
             return (
-              <Col className="d-flex" key={program.id}>
+              <Col className="d-flex programs-col" key={program.id}>
                 <Card border="dark programs-card">
                   <Card.Img
                     variant="top"
