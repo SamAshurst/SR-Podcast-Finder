@@ -23,7 +23,7 @@ export default function CategoryList() {
   return (
     <div>
       <h1>{params.channel}</h1>
-      <ListGroup>
+      <ListGroup className="mt-4">
         {categoryList.map((category) => {
           return (
             <ListGroupItem tag="button" className="category" key={category.id}>

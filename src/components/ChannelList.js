@@ -27,7 +27,7 @@ export default function ChannelList({ channels }) {
 
   return (
     <>
-      <Container className="p-3 m-auto">
+      <Container className="p-3 pt-4">
         <Row xs={2} sm={2} md={2} lg={3} xl={4} className="g-4 d-flex">
           {mainChannels.map((channel) => {
             return (
