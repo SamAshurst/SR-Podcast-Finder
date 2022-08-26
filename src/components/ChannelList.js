@@ -42,7 +42,7 @@ export default function ChannelList({ channels }) {
                     <Card.Title className="mb-0 channels-title">
                       {channel.name}
                     </Card.Title>
-                    <Card.Text className="mb-0 channels-text">
+                    <Card.Text className="mb-1 channels-text">
                       {channel.tagline}
                     </Card.Text>
                     <Link to={channel.name} state={channel.id}>
@@ -65,9 +65,11 @@ export default function ChannelList({ channels }) {
                 className="channels-logo"
                 src={p4LocalChannels[0].image}
               ></Card.Img>
-              <Card.Body>
-                <Card.Title className="channels-title">P4 Lokal</Card.Title>
-                <Card.Text className="channels-text">
+              <Card.Body className="p-1">
+                <Card.Title className="mb-0 channels-title">
+                  P4 Lokal
+                </Card.Title>
+                <Card.Text className="mb-1 channels-text">
                   Lokal radiokanalarna med nyheter, sport och kultur i en härlig
                   blandning.
                 </Card.Text>
