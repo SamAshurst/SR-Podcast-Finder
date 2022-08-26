@@ -28,10 +28,10 @@ export default function ChannelList({ channels }) {
   return (
     <>
       <Container className="p-3 m-auto">
-        <Row xs={1} sm={2} md={2} lg={3} xl={4} className="g-4 d-flex">
+        <Row xs={2} sm={2} md={2} lg={3} xl={4} className="g-4 d-flex">
           {mainChannels.map((channel) => {
             return (
-              <Col className="d-flex" key={channel.id}>
+              <Col className="d-flex channels-col" key={channel.id}>
                 <Card border="dark channels-card">
                   <Card.Img
                     variant="top"
@@ -51,7 +51,7 @@ export default function ChannelList({ channels }) {
               </Col>
             );
           })}
-          <Col className="d-flex">
+          <Col className="d-flex channels-col">
             <Card border="dark channels-card">
               <Card.Img
                 variant="top"
