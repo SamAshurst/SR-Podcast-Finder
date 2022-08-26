@@ -1,25 +1,25 @@
-html { 
-  background-color: #f7f7f7
+html {
+  background-color: #f7f7f7;
 }
 .App {
-  text-align: center; 
-  background-color:  #f7f7f7
+  text-align: center;
+  background-color: #f7f7f7;
 }
 
 .channels-logo {
-  object-fit:inherit;
+  object-fit: inherit;
   max-width: 576px;
-  max-height: 576px; 
+  max-height: 576px;
 }
 .channels-card {
-  background-color:  #f7f7f7 !important;
+  background-color: #f7f7f7 !important;
 }
 
 .programs-card {
-  background-color:  #f7f7f7 !important;
+  background-color: #f7f7f7 !important;
 }
 .programs-image {
-  object-fit:inherit;
+  object-fit: inherit;
 }
 
 .episodes-link {
@@ -28,7 +28,7 @@ html {
 }
 .episodes-image {
   max-width: 88px;
-  max-height: 88px; 
+  max-height: 88px;
 }
 .episodes-container {
   padding-top: 2px;
@@ -36,7 +36,9 @@ html {
 .episodes-image-col {
   padding-top: 7px;
 }
-.episodes-text, .episodes-title, .episodes-published {
+.episodes-text,
+.episodes-title,
+.episodes-published {
   text-align: left;
 }
 
@@ -45,7 +47,7 @@ html {
 }
 
 .dropbtn {
-  background-color: #04AA6D;
+  background-color: #04aa6d;
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -60,7 +62,7 @@ html {
   position: absolute;
   background-color: #f1f1f1;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 .dropdown-content a {
@@ -84,24 +86,28 @@ html {
   color: #000000;
   text-decoration: none;
 }
-.list-group-item{
-  background-color:  #f7f7f7 !important
+.list-group-item {
+  background-color: #f7f7f7 !important;
 }
 .list-group-item:hover {
   background-color: rgb(240, 239, 236) !important;
 }
 
-
-
 .Button {
   white-space: normal;
 }
 
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
 
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
 
 .App-header {
   background-color: #282c34;
@@ -128,31 +134,30 @@ a:-webkit-any-link:hover {
 }
 .episodes-desc {
   text-align: left;
-  font-weight:bolder;
+  font-weight: bolder;
   font-size: larger;
   margin-left: 25px;
   margin-bottom: -10px;
 }
 
-@media (max-width: 768px)  {
-
+@media (max-width: 768px) {
   .channels-col {
-   padding:2px !important;
-   margin-top: 1px !important;
+    padding: 2px !important;
+    margin-top: 1px !important;
   }
 
   .programs-col {
-    padding:2px !important;
-   margin-top: 1px !important;
+    padding: 2px !important;
+    margin-top: 1px !important;
   }
 
-  .episodes-list-link {    
-    cursor: default; 
+  .episodes-list-link {
+    cursor: default;
   }
-  .list-group-item:hover{
+  .list-group-item:hover {
     background-color: #f7f7f7 !important;
   }
-  .episodes-button{
+  .episodes-button {
     margin-left: 0px;
     max-width: 92px;
     color: #f7f7f7 !important;
