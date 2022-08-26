@@ -41,6 +41,10 @@ html {
 .episodes-published {
   text-align: left;
 }
+.episodes-published {
+  text-transform: capitalize;
+  color: #474747;
+}
 
 .d-grid {
   grid-template-columns: 98px 3fr;
@@ -150,7 +154,27 @@ a:-webkit-any-link:hover {
     padding: 2px !important;
     margin-top: 1px !important;
   }
+  .programs-text,
+  .episodes-text,
+  .channels-text {
+    font-size: smaller;
+  }
+  .programs-title,
+  .channels-title {
+    font-size: medium !important;
+  }
 
+  .episodes-title,
+  .episodes-published,
+  .category {
+    font-size: small !important;
+  }
+
+  .episodes-button,
+  .programs-button,
+  .channels-button {
+    font-size: 0.9rem !important;
+  }
   .episodes-list-link {
     cursor: default;
   }
@@ -160,6 +184,9 @@ a:-webkit-any-link:hover {
   .episodes-button {
     margin-left: 0px;
     max-width: 92px;
-    color: #f7f7f7 !important;
+    color: #ffffff !important;
+  }
+  .episodes-published {
+    padding-top: 2px;
   }
 }

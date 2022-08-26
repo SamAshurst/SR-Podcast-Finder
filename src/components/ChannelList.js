@@ -38,11 +38,18 @@ export default function ChannelList({ channels }) {
                     className="channels-logo"
                     src={channel.image}
                   />
-                  <Card.Body className="p-1 ps-2 pe-2">
-                    <Card.Title className="mb-0">{channel.name}</Card.Title>
-                    <Card.Text className="mb-1">{channel.tagline}</Card.Text>
+                  <Card.Body className="p-1">
+                    <Card.Title className="mb-0 channels-title">
+                      {channel.name}
+                    </Card.Title>
+                    <Card.Text className="mb-0 channels-text">
+                      {channel.tagline}
+                    </Card.Text>
                     <Link to={channel.name} state={channel.id}>
-                      <Button variant="primary" className="mb-1 mt-1">
+                      <Button
+                        variant="primary"
+                        className="mb-0 mt-0 channels-button"
+                      >
                         Gå till kanalsidan
                       </Button>
                     </Link>
@@ -59,14 +66,16 @@ export default function ChannelList({ channels }) {
                 src={p4LocalChannels[0].image}
               ></Card.Img>
               <Card.Body>
-                <Card.Title>P4 Lokal</Card.Title>
-                <Card.Text>
+                <Card.Title className="channels-title">P4 Lokal</Card.Title>
+                <Card.Text className="channels-text">
                   Lokal radiokanalarna med nyheter, sport och kultur i en härlig
                   blandning.
                 </Card.Text>
                 <div className="dropdown">
-                  <Button className="dropbtn">Välj en kanal</Button>
-                  <div className="dropdown-content">
+                  <Button className="dropbtn channels-button">
+                    Välj en kanal
+                  </Button>
+                  <div className="dropdown-content channels-button">
                     {p4LocalChannels.map((channel) => {
                       // create href link
                       return <div key={channel.id}>{channel.name}</div>;

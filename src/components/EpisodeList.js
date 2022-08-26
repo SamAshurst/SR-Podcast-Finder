@@ -38,7 +38,7 @@ export default function Episodes() {
                 href={episode.url}
                 rel="noopener noreferrer"
               >
-                <Container fluid className="episodes-container ps-2 pe-2 pb-2">
+                <Container fluid className="episodes-container ps-1 pe-1 pb-1">
                   <Row className="d-grid">
                     <Col className="episodes-image-col m-auto">
                       <img
@@ -47,15 +47,15 @@ export default function Episodes() {
                         alt="episodes-thumbnail"
                       ></img>
                     </Col>
-                    <Row className="d-flex">
-                      <div className="m-auto">
+                    <Row className="d-flex pe-0">
+                      <div className="m-auto ps-2 pe-0">
                         <div className="fw-bold episodes-title">
                           {episode.title}
                         </div>
                         <div className=" episodes-text">
                           {episode.description}
                         </div>
-                        <div className="text-muted episodes-published">
+                        <div className="episodes-published">
                           {publishedDate(episode.publishdateutc)}
                         </div>
                         <Button
