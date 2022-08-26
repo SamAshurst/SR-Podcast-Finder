@@ -1,9 +1,9 @@
 html { 
-  background-color: rgb(250, 249, 246)
+  background-color: #f7f7f7
 }
 .App {
   text-align: center; 
-  background-color: rgb(250, 249, 246)
+  background-color:  #f7f7f7
 }
 
 .channels-logo {
@@ -12,11 +12,11 @@ html {
   max-height: 576px; 
 }
 .channels-card {
-  background-color: rgb(250, 249, 246) !important;
+  background-color:  #f7f7f7 !important;
 }
 
 .programs-card {
-  background-color: rgb(250, 249, 246) !important;
+  background-color:  #f7f7f7 !important;
 }
 .programs-image {
   object-fit:inherit;
@@ -85,7 +85,7 @@ html {
   text-decoration: none;
 }
 .list-group-item{
-  background-color: rgb(250, 249, 246) !important
+  background-color:  #f7f7f7 !important
 }
 .list-group-item:hover {
   background-color: rgb(240, 239, 236) !important;
@@ -115,7 +115,7 @@ html {
 }
 
 .header__title {
-  margin: 20px 20px 10px 20px;
+  margin: 20px 20px 20px 20px;
 }
 
 .App-link {
@@ -136,16 +136,25 @@ a:-webkit-any-link:hover {
 
 @media (max-width: 768px)  {
 
+  .channels-col {
+   padding:2px !important;
+   margin-top: 1px !important;
+  }
+
+  .programs-col {
+    padding:2px !important;
+   margin-top: 1px !important;
+  }
+
   .episodes-list-link {    
-    pointer-events:none;
     cursor: default; 
   }
   .list-group-item:hover{
-    background-color: rgb(255, 255, 255) !important;
+    background-color: #f7f7f7 !important;
   }
   .episodes-button{
     margin-left: 0px;
     max-width: 92px;
-    color: rgb(255, 255, 255) !important;
+    color: #f7f7f7 !important;
   }
 }
