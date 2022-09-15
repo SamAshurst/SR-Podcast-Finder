@@ -128,6 +128,9 @@ html {
   text-decoration: none;
   color: #000000;
 }
+.header-title:hover {
+  color: #474747 !important;
+}
 
 .App-link {
   color: #61dafb;
