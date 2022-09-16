@@ -48,10 +48,12 @@ export function getCategory() {
 export function getProgramsForChannelCategory(
   channelId,
   categoryId,
-  pageParam = 1
+  pageParam = 1,
+  options = {}
 ) {
   return SrApi.get(
-    `programs/index?channelid=${channelId}&programcategoryid=${categoryId}&filter=program.haspod&filtervalue=true&page=${pageParam}`
+    `programs/index?channelid=${channelId}&programcategoryid=${categoryId}&filter=program.haspod&filtervalue=true&page=${pageParam}`,
+    options
   )
     .then(({ data }) => {
       return parser.parseStringPromise(data);
