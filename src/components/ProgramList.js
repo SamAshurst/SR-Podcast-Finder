@@ -1,14 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useRef, useCallback } from "react";
 import { useParams, useLocation } from "react-router-dom";
-import { Card, Container, Col, Row, Button } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import usePrograms from "../hooks/usePrograms";
 import ProgramCard from "./ProgramCard";
-import * as api from "../utils/api";
 
 export default function ProgramList() {
-  // const [programList, setProgramList] = useState();
   const [pageNum, setPageNum] = useState(1);
-  // const [isLoading, setLoading] = useState(true);
   const params = useParams();
   const location = useLocation();
   const {
@@ -21,26 +18,40 @@ export default function ProgramList() {
     pageNum
   );
 
-  // useEffect(() => {
-  //   api.getProgramsForChannelCategory(channelId, categoryId).then((data) => {
-  //     setProgramList(data.programs);
-  //     setPage(data.pagination.page);
-  //     setLoading(false);
-  //   });
-  // }, [categoryId, channelId]);
+  const intObserver = useRef();
+  const lastPostRef = useCallback(
+    (program) => {
+      if (isLoading) return;
+
+      if (intObserver.current) intObserver.current.disconnect();
+
+      intObserver.current = new IntersectionObserver((programs) => {
+        if (programs[0].isIntersecting && hasNextPage) {
+          setPageNum((prev) => prev + 1);
+        }
+      });
+
+      if (program) intObserver.current.observe(program);
+    },
+    [isLoading, hasNextPage]
+  );
 
   if (isError) return <p className="error">Error: {error.message}</p>;
 
+  if (results.length === 0) {
+    return <div>No programs for this category</div>;
+  }
+
   const programs = results.map((program, i) => {
     if (results.length === i + 1) {
-      console.log("last element");
+      return <ProgramCard ref={lastPostRef} program={program} />;
     }
     return <ProgramCard program={program} />;
   });
 
-  if (isLoading) {
-    return <div>Loading..</div>;
-  }
+  // if (isLoading) {
+  //   return <div>Loading..</div>;
+  // }
 
   return (
     <Container className="p-1 m-auto ">
@@ -49,16 +60,4 @@ export default function ProgramList() {
       </Row>
     </Container>
   );
-
-  // if (!programList) {
-  //   return <div>No programs for this category</div>;
-  // }
-
-  // return (
-  //   <>
-  //     <div>{params.channel}</div>
-  //     <div>{params.category}</div>
-  //     <ProgramCard programList={programList} />
-  //   </>
-  // );
 }

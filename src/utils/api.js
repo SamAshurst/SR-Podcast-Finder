@@ -48,11 +48,11 @@ export function getCategory() {
 export function getProgramsForChannelCategory(
   channelId,
   categoryId,
-  pageParam = 1,
+  pageNum = 1,
   options = {}
 ) {
   return SrApi.get(
-    `programs/index?channelid=${channelId}&programcategoryid=${categoryId}&filter=program.haspod&filtervalue=true&page=${pageParam}`,
+    `programs/index?channelid=${channelId}&programcategoryid=${categoryId}&filter=program.haspod&filtervalue=true&page=${pageNum}`,
     options
   )
     .then(({ data }) => {
@@ -61,6 +61,9 @@ export function getProgramsForChannelCategory(
     .then((data) => {
       const pagination = data.sr.pagination;
       const programs = data.sr.programs.program;
+      if (pagination.page > pagination.totalpages) {
+        return;
+      }
 
       if (programs && !Array.isArray(programs)) {
         return { programs: [programs], pagination };

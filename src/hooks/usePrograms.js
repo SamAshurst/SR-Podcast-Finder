@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useParams, useLocation } from "react-router-dom";
 import { getProgramsForChannelCategory } from "../utils/api";
 
 export default function usePrograms(channelId, categoryId, pageNum = 1) {
@@ -21,6 +20,7 @@ export default function usePrograms(channelId, categoryId, pageNum = 1) {
       signal,
     })
       .then((data) => {
+        if (!data) return () => controller.abort();
         setResults((prev) => [...prev, ...data.programs]);
         setHasNextPage(Boolean(data.programs.length));
         setIsLoading(false);
