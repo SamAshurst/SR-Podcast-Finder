@@ -53,15 +53,21 @@ export function getProgramsForChannelCategory(channelId, categoryId) {
       return parser.parseStringPromise(data);
     })
     .then(
-      ({
-        sr: {
-          programs: { program },
-        },
-      }) => {
-        if (program && !Array.isArray(program)) {
-          return [program];
+      (
+        data
+        // {
+        //   sr: {
+        //     programs: { program },
+        //   },
+        // }
+      ) => {
+        const pagination = data.sr.pagination;
+        const programs = data.sr.programs.program;
+
+        if (programs && !Array.isArray(programs)) {
+          return { programs: [programs], pagination };
         }
-        return program;
+        return { programs, pagination };
       }
     );
 }

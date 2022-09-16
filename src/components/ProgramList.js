@@ -5,6 +5,7 @@ import * as api from "../utils/api";
 
 export default function ProgramList() {
   const [programList, setProgramList] = useState();
+  const [page, setPage] = useState(1);
   const [isLoading, setLoading] = useState(true);
   const params = useParams();
   const location = useLocation();
@@ -14,12 +15,11 @@ export default function ProgramList() {
   } = location.state;
 
   useEffect(() => {
-    api
-      .getProgramsForChannelCategory(channelId, categoryId)
-      .then((programs) => {
-        setProgramList(programs);
-        setLoading(false);
-      });
+    api.getProgramsForChannelCategory(channelId, categoryId).then((data) => {
+      setProgramList(data.programs);
+      setPage(data.pagination.page);
+      setLoading(false);
+    });
   }, [categoryId, channelId]);
 
   if (isLoading) {
