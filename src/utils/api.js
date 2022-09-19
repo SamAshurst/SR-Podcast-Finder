@@ -45,31 +45,31 @@ export function getCategory() {
     );
 }
 
-export function getProgramsForChannelCategory(channelId, categoryId) {
+export function getProgramsForChannelCategory(
+  channelId,
+  categoryId,
+  pageNum = 1,
+  options = {}
+) {
   return SrApi.get(
-    `programs/index?channelid=${channelId}&programcategoryid=${categoryId}&filter=program.haspod&filtervalue=true`
+    `programs/index?channelid=${channelId}&programcategoryid=${categoryId}&filter=program.haspod&filtervalue=true&page=${pageNum}`,
+    options
   )
     .then(({ data }) => {
       return parser.parseStringPromise(data);
     })
-    .then(
-      (
-        data
-        // {
-        //   sr: {
-        //     programs: { program },
-        //   },
-        // }
-      ) => {
-        const pagination = data.sr.pagination;
-        const programs = data.sr.programs.program;
-
-        if (programs && !Array.isArray(programs)) {
-          return { programs: [programs], pagination };
-        }
-        return { programs, pagination };
+    .then((data) => {
+      const pagination = data.sr.pagination;
+      const programs = data.sr.programs.program;
+      if (pagination.page > pagination.totalpages) {
+        return;
       }
-    );
+
+      if (programs && !Array.isArray(programs)) {
+        return { programs: [programs], pagination };
+      }
+      return { programs, pagination };
+    });
 }
 
 export function getEpisodes(programId) {
