@@ -41,6 +41,10 @@ export default function ProgramList() {
     return <ProgramCard key={i} program={program} />;
   });
 
+  if (isLoading) {
+    return <div>Loading..</div>;
+  }
+
   if (isEmpty) {
     return <div>No programs for this category</div>;
   }

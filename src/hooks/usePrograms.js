@@ -4,13 +4,12 @@ import { getProgramsForChannelCategory } from "../utils/api";
 export default function usePrograms(channelId, categoryId, pageNum = 1) {
   const [results, setResults] = useState([]);
   const [isEmpty, setIsEmpty] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [error, setError] = useState({});
   const [hasNextPage, setHasNextPage] = useState(false);
 
   useEffect(() => {
-    setIsLoading(true);
     setIsEmpty(false);
     setIsError(false);
     setError({});
@@ -36,7 +35,6 @@ export default function usePrograms(channelId, categoryId, pageNum = 1) {
         setIsError(true);
         setError({ message: err.message });
       });
-
     return () => controller.abort();
     // eslint-disable-next-line
   }, [channelId, categoryId, pageNum]);
