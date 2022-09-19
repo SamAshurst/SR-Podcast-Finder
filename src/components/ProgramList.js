@@ -12,11 +12,8 @@ export default function ProgramList() {
     category: { id: categoryId },
     channelId,
   } = location.state;
-  const { isLoading, isError, error, results, hasNextPage } = usePrograms(
-    channelId,
-    categoryId,
-    pageNum
-  );
+  const { isLoading, isError, error, results, hasNextPage, isEmpty } =
+    usePrograms(channelId, categoryId, pageNum);
 
   const intObserver = useRef();
   const lastPostRef = useCallback(
@@ -35,29 +32,27 @@ export default function ProgramList() {
     },
     [isLoading, hasNextPage]
   );
-
   if (isError) return <p className="error">Error: {error.message}</p>;
-
-  if (results.length === 0) {
-    return <div>No programs for this category</div>;
-  }
 
   const programs = results.map((program, i) => {
     if (results.length === i + 1) {
-      return <ProgramCard ref={lastPostRef} program={program} />;
+      return <ProgramCard ref={lastPostRef} key={i} program={program} />;
     }
-    return <ProgramCard program={program} />;
+    return <ProgramCard key={i} program={program} />;
   });
 
-  // if (isLoading) {
-  //   return <div>Loading..</div>;
-  // }
+  if (isEmpty) {
+    return <div>No programs for this category</div>;
+  }
 
   return (
-    <Container className="p-1 m-auto ">
-      <Row xs={2} sm={2} md={3} lg={4} xl={5} className="g-4 d-flex m-auto">
-        {programs}
-      </Row>
-    </Container>
+    <>
+      <Container className="p-1 m-auto ">
+        <Row xs={2} sm={2} md={3} lg={4} xl={5} className="g-4 d-flex m-auto">
+          {programs}
+          {isLoading && programs.length > 9 ? <div>Loading..</div> : <></>}
+        </Row>
+      </Container>
+    </>
   );
 }
