@@ -24,7 +24,7 @@ export default function usePrograms(channelId, categoryId, pageNum = 1) {
         if (!data && results.length === 0) {
           setIsEmpty(true);
         }
-        if (!data) return () => controller.abort();
+        if (!data || !data.programs) return () => controller.abort();
         setResults((prev) => [...prev, ...data.programs]);
         setHasNextPage(Boolean(data.programs.length));
         setIsLoading(false);
